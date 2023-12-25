@@ -7,16 +7,28 @@
     <title>Document</title>
     <style>
         :root {
-            --player-color: blue;
-            background-color: rgb(179, 179, 179);
+            --player1-color: rgb(35, 35, 202);
+            --player2-color: rgb(193, 129, 11);
+            --background-color: rgb(62, 59, 52);
+            --board-color: rgb(88, 85, 80);
+            --text-color: rgb(174, 170, 162);
+
+            --player-color: var(--player1-color);
+
+            background-color: var(--background-color);
+            font-family: sans-serif;
         }
 
         #grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            background-color: rgb(33, 33, 33);
+            background-color: var(--board-color);
             padding: 16px;
             border-radius: 16px;
+            box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            width: 100%;
+            min-width: 550px;
         }
 
         #grid-top {
@@ -40,16 +52,18 @@
         }
 
         .tile {
-            background-color: rgb(179, 179, 179);
+            background-color: var(--background-color);
             height: 50px;
             width: 50px;
             border-radius: 100%;
+            /* inner shadow */
+            box-shadow: inset 0 0 16px 0 rgba(0, 0, 0, 0.5);
         }
 
         .button {
             all: unset;
             position: relative;
-            height: 500px;
+            height: 450px;
         }
 
         .button::after {
@@ -62,6 +76,8 @@
             border-radius: 100%;
             background-color: var(--player-color);
             opacity: 0;
+            box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(33, 33, 33, 0.2);
         }
 
         .button:focus {
@@ -70,6 +86,21 @@
 
         .button:hover::after {
             opacity: 1;
+        }
+        .center-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #reset-game{
+            all: unset;
+            cursor: pointer;
+            margin: 16px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background-color: var(--board-color);
+            color: var(--text-color);
+            box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -108,145 +139,150 @@
             </button>
         </div>
     </div>
-    <div id="grid">
-        <div class="grid-row">
-            <div id="row-6-cell-1" class="grid-cell circle-container">
-                <div class="tile"></div>
+    <div class="center-container">
+        <div id="grid">
+            <div class="grid-row">
+                <div id="row-6-cell-1" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-6-cell-2" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-6-cell-3" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-6-cell-4" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-6-cell-5" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-6-cell-6" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-6-cell-7" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
             </div>
-            <div id="row-6-cell-2" class="grid-cell circle-container">
-                <div class="tile"></div>
+            <div class="grid-row">
+                <div id="row-5-cell-1" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-5-cell-2" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-5-cell-3" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-5-cell-4" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-5-cell-5" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-5-cell-6" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-5-cell-7" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
             </div>
-            <div id="row-6-cell-3" class="grid-cell circle-container">
-                <div class="tile"></div>
+            <div class="grid-row">
+                <div id="row-4-cell-1" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-4-cell-2" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-4-cell-3" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-4-cell-4" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-4-cell-5" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-4-cell-6" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-4-cell-7" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
             </div>
-            <div id="row-6-cell-4" class="grid-cell circle-container">
-                <div class="tile"></div>
+            <div class="grid-row">
+                <div id="row-3-cell-1" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-3-cell-2" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-3-cell-3" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-3-cell-4" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-3-cell-5" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-3-cell-6" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-3-cell-7" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
             </div>
-            <div id="row-6-cell-5" class="grid-cell circle-container">
-                <div class="tile"></div>
+            <div class="grid-row">
+                <div id="row-2-cell-1" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-2-cell-2" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-2-cell-3" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-2-cell-4" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-2-cell-5" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-2-cell-6" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-2-cell-7" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
             </div>
-            <div id="row-6-cell-6" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-6-cell-7" class="grid-cell circle-container">
-                <div class="tile"></div>
+            <div class="grid-row">
+                <div id="row-1-cell-1" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-1-cell-2" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-1-cell-3" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-1-cell-4" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-1-cell-5" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-1-cell-6" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
+                <div id="row-1-cell-7" class="grid-cell circle-container">
+                    <div class="tile"></div>
+                </div>
             </div>
         </div>
-        <div class="grid-row">
-            <div id="row-5-cell-1" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-5-cell-2" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-5-cell-3" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-5-cell-4" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-5-cell-5" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-5-cell-6" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-5-cell-7" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div id="row-4-cell-1" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-4-cell-2" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-4-cell-3" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-4-cell-4" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-4-cell-5" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-4-cell-6" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-4-cell-7" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div id="row-3-cell-1" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-3-cell-2" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-3-cell-3" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-3-cell-4" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-3-cell-5" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-3-cell-6" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-3-cell-7" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div id="row-2-cell-1" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-2-cell-2" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-2-cell-3" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-2-cell-4" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-2-cell-5" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-2-cell-6" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-2-cell-7" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div id="row-1-cell-1" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-1-cell-2" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-1-cell-3" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-1-cell-4" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-1-cell-5" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-1-cell-6" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-            <div id="row-1-cell-7" class="grid-cell circle-container">
-                <div class="tile"></div>
-            </div>
-        </div>
+    </div>
+    <div class="center-container">
+        <button id="reset-game" onclick="resetGame()">Reset</button>
     </div>
     <script>
         const root = document.documentElement;
@@ -317,8 +353,10 @@
 
         const columns = [column1, column2, column3, column4, column5, column6, column7];
 
-        const player1 = "blue";
-        const player2 = "orange";
+        const player1 = "var(--player1-color)"
+        const player2 = "var(--player2-color)"
+
+        let gameRunning = true;
 
         let currentPlayer = player1;
 
@@ -340,14 +378,16 @@
         }
 
         function handleClick(event) {
+            if (!gameRunning) {
+                return
+            }
             const column = (event.target.id.split("-")[1] - 1);
             for (i = 0; i <= 5; i++) {
-                if (window.getComputedStyle(columns[column][i].children[0]).backgroundColor == "rgb(179, 179, 179)") {
+                if (window.getComputedStyle(columns[column][i].children[0]).backgroundColor == window.getComputedStyle(root).getPropertyValue('--background-color')) {
                     columns[column][i].children[0].style.backgroundColor = currentPlayer
                     i = 5
                 }
                 else if (i == 5) {
-                    alert("column is full")
                     return
                 }
             }
@@ -368,7 +408,7 @@
             let tie = true
             columns.forEach(column => {
                 column.forEach(cell => {
-                    if (window.getComputedStyle(cell.children[0]).backgroundColor == "rgb(179, 179, 179)") {
+                    if (window.getComputedStyle(cell.children[0]).backgroundColor == window.getComputedStyle(root).getPropertyValue('--background-color')) {
                         tie = false
                     }
                 });
@@ -376,22 +416,23 @@
             if (tie) {
                 setTimeout(() => {
                     alert("Tie")
+                    gameRunning = false
                 }, 100);
             }
         }
 
-        function checkColRow(col, row, blue, orange) {
+        function checkColRow(col, row) {
             if (
-                window.getComputedStyle(columns[col][row].children[0]).backgroundColor == "rgb(255, 165, 0)"
-                && window.getComputedStyle(columns[col][row].children[0]).backgroundColor != "rgb(179, 179, 179)"
+                window.getComputedStyle(columns[col][row].children[0]).backgroundColor == window.getComputedStyle(root).getPropertyValue('--player2-color')
+                && window.getComputedStyle(columns[col][row].children[0]).backgroundColor != window.getComputedStyle(root).getPropertyValue('--background-color')
             ) {
                 orangeInARow++
             } else {
                 orangeInARow = 0
             }
             if (
-                window.getComputedStyle(columns[col][row].children[0]).backgroundColor == "rgb(0, 0, 255)"
-                && window.getComputedStyle(columns[col][row].children[0]).backgroundColor != "rgb(179, 179, 179)"
+                window.getComputedStyle(columns[col][row].children[0]).backgroundColor == window.getComputedStyle(root).getPropertyValue('--player1-color')
+                && window.getComputedStyle(columns[col][row].children[0]).backgroundColor != window.getComputedStyle(root).getPropertyValue('--background-color')
             ) {
                 blueInARow++
             } else {
@@ -400,14 +441,14 @@
             if (blueInARow == 4) {
                 setTimeout(() => {
                     alert("Blue win!")
-                    resetGame()
+                    gameRunning = false
                     return true
                 }, 100);
             }
             if (orangeInARow == 4) {
                 setTimeout(() => {
                     alert("Orange win!")
-                    resetGame()
+                    gameRunning = false
                     return true
                 }, 100);
             }
@@ -495,9 +536,10 @@
         }
 
         function resetGame() {
+            gameRunning = true;
             for (i = 0; i <= 6; i++) {
                 for (j = 0; j <= 5; j++) {
-                    columns[i][j].children[0].style.backgroundColor = "rgb(179, 179, 179)"
+                    columns[i][j].children[0].style.backgroundColor = window.getComputedStyle(root).getPropertyValue('--background-color')
                 }
             }
         }
