@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --player-color: blue;
+            background-color: rgb(179, 179, 179);
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background-color: rgb(33, 33, 33);
+            padding: 16px;
+        }
+
+        #grid-top {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 16px;
+            height: 50px;
+        }
+
+        .grid-row {
+            display: contents;
+        }
+
+        .grid-cell {
+            margin: 4px 0;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tile {
+            background-color: rgb(179, 179, 179);
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+        }
+
+        .button {
+            all: unset;
+            position: relative;
+        }
+
+        .button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: calc(50% - 25px);
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            background-color: var(--player-color);
+            opacity: 0;
+        }
+
+        .button:focus {
+            outline: revert;
+        }
+
+        .button:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grid-top">
+        <!-- Top row with buttons -->
+        <div id="input-row" class="grid-row">
+            <button id="column-1" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+            <button id="column-2" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+            <button id="column-3" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+            <button id="column-4" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+            <button id="column-5" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+            <button id="column-6" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+            <button id="column-7" class="button grid-cell">
+                <!-- <div class="tile">
+                </div> -->
+            </button>
+        </div>
+    </div>
+    <div id="grid">
+        <div class="grid-row">
+            <div id="row-6-cell-1" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-6-cell-2" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-6-cell-3" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-6-cell-4" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-6-cell-5" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-6-cell-6" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-6-cell-7" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div id="row-5-cell-1" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-5-cell-2" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-5-cell-3" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-5-cell-4" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-5-cell-5" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-5-cell-6" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-5-cell-7" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div id="row-4-cell-1" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-4-cell-2" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-4-cell-3" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-4-cell-4" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-4-cell-5" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-4-cell-6" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-4-cell-7" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div id="row-3-cell-1" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-3-cell-2" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-3-cell-3" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-3-cell-4" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-3-cell-5" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-3-cell-6" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-3-cell-7" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div id="row-2-cell-1" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-2-cell-2" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-2-cell-3" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-2-cell-4" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-2-cell-5" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-2-cell-6" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-2-cell-7" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div id="row-1-cell-1" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-1-cell-2" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-1-cell-3" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-1-cell-4" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-1-cell-5" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-1-cell-6" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+            <div id="row-1-cell-7" class="grid-cell circle-container">
+                <div class="tile"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const root = document.documentElement;
+
+        const button1 = document.getElementById("column-1");
+        const button2 = document.getElementById("column-2");
+        const button3 = document.getElementById("column-3");
+        const button4 = document.getElementById("column-4");
+        const button5 = document.getElementById("column-5");
+        const button6 = document.getElementById("column-6");
+        const button7 = document.getElementById("column-7");
+
+        const row_1_cell_1 = document.getElementById("row-1-cell-1");
+        const row_1_cell_2 = document.getElementById("row-1-cell-2");
+        const row_1_cell_3 = document.getElementById("row-1-cell-3");
+        const row_1_cell_4 = document.getElementById("row-1-cell-4");
+        const row_1_cell_5 = document.getElementById("row-1-cell-5");
+        const row_1_cell_6 = document.getElementById("row-1-cell-6");
+        const row_1_cell_7 = document.getElementById("row-1-cell-7");
+
+        const row_2_cell_1 = document.getElementById("row-2-cell-1");
+        const row_2_cell_2 = document.getElementById("row-2-cell-2");
+        const row_2_cell_3 = document.getElementById("row-2-cell-3");
+        const row_2_cell_4 = document.getElementById("row-2-cell-4");
+        const row_2_cell_5 = document.getElementById("row-2-cell-5");
+        const row_2_cell_6 = document.getElementById("row-2-cell-6");
+        const row_2_cell_7 = document.getElementById("row-2-cell-7");
+
+        const row_3_cell_1 = document.getElementById("row-3-cell-1");
+        const row_3_cell_2 = document.getElementById("row-3-cell-2");
+        const row_3_cell_3 = document.getElementById("row-3-cell-3");
+        const row_3_cell_4 = document.getElementById("row-3-cell-4");
+        const row_3_cell_5 = document.getElementById("row-3-cell-5");
+        const row_3_cell_6 = document.getElementById("row-3-cell-6");
+        const row_3_cell_7 = document.getElementById("row-3-cell-7");
+
+        const row_4_cell_1 = document.getElementById("row-4-cell-1");
+        const row_4_cell_2 = document.getElementById("row-4-cell-2");
+        const row_4_cell_3 = document.getElementById("row-4-cell-3");
+        const row_4_cell_4 = document.getElementById("row-4-cell-4");
+        const row_4_cell_5 = document.getElementById("row-4-cell-5");
+        const row_4_cell_6 = document.getElementById("row-4-cell-6");
+        const row_4_cell_7 = document.getElementById("row-4-cell-7");
+
+        const row_5_cell_1 = document.getElementById("row-5-cell-1");
+        const row_5_cell_2 = document.getElementById("row-5-cell-2");
+        const row_5_cell_3 = document.getElementById("row-5-cell-3");
+        const row_5_cell_4 = document.getElementById("row-5-cell-4");
+        const row_5_cell_5 = document.getElementById("row-5-cell-5");
+        const row_5_cell_6 = document.getElementById("row-5-cell-6");
+        const row_5_cell_7 = document.getElementById("row-5-cell-7");
+
+        const row_6_cell_1 = document.getElementById("row-6-cell-1");
+        const row_6_cell_2 = document.getElementById("row-6-cell-2");
+        const row_6_cell_3 = document.getElementById("row-6-cell-3");
+        const row_6_cell_4 = document.getElementById("row-6-cell-4");
+        const row_6_cell_5 = document.getElementById("row-6-cell-5");
+        const row_6_cell_6 = document.getElementById("row-6-cell-6");
+        const row_6_cell_7 = document.getElementById("row-6-cell-7");
+
+        const column7 = [row_1_cell_7, row_2_cell_7, row_3_cell_7, row_4_cell_7, row_5_cell_7, row_6_cell_7];
+        const column6 = [row_1_cell_6, row_2_cell_6, row_3_cell_6, row_4_cell_6, row_5_cell_6, row_6_cell_6];
+        const column5 = [row_1_cell_5, row_2_cell_5, row_3_cell_5, row_4_cell_5, row_5_cell_5, row_6_cell_5];
+        const column4 = [row_1_cell_4, row_2_cell_4, row_3_cell_4, row_4_cell_4, row_5_cell_4, row_6_cell_4];
+        const column3 = [row_1_cell_3, row_2_cell_3, row_3_cell_3, row_4_cell_3, row_5_cell_3, row_6_cell_3];
+        const column2 = [row_1_cell_2, row_2_cell_2, row_3_cell_2, row_4_cell_2, row_5_cell_2, row_6_cell_2];
+        const column1 = [row_1_cell_1, row_2_cell_1, row_3_cell_1, row_4_cell_1, row_5_cell_1, row_6_cell_1];
+
+        const columns = [column1, column2, column3, column4, column5, column6, column7];
+
+        const player1 = "blue";
+        const player2 = "orange";
+
+        let currentPlayer = player1;
+
+        button1.onclick = () => { handleClick(event) }
+        button2.onclick = () => { handleClick(event) }
+        button3.onclick = () => { handleClick(event) }
+        button4.onclick = () => { handleClick(event) }
+        button5.onclick = () => { handleClick(event) }
+        button6.onclick = () => { handleClick(event) }
+        button7.onclick = () => { handleClick(event) }
+
+        function switchCurrentPlayer() {
+            if (currentPlayer == player1) {
+                currentPlayer = player2
+            }
+            else {
+                currentPlayer = player1
+            }
+        }
+
+        function handleClick(event) {
+            const column = (event.target.id.split("-")[1] - 1);
+            for (i = 0; i <= 5; i++) {
+                if (window.getComputedStyle(columns[column][i].children[0]).backgroundColor == "rgb(179, 179, 179)") {
+                    columns[column][i].children[0].style.backgroundColor = currentPlayer
+                    i = 5
+                }
+            }
+            checkIfWin()
+            switchCurrentPlayer()
+            root.style.setProperty('--player-color', currentPlayer)
+        }
+
+        function checkIfWin() {
+            checkHorizontal()
+            checkVertical()
+            checkDiagonalUp()
+            checkDiagonalDown()
+        }
+
+        function checkColRow(col, row, blue, orange) {
+            if (
+                window.getComputedStyle(columns[col][row].children[0]).backgroundColor == "rgb(255, 165, 0)"
+                && window.getComputedStyle(columns[col][row].children[0]).backgroundColor != "rgb(179, 179, 179)"
+            ) {
+                orangeInARow++
+            } else {
+                orangeInARow = 0
+            }
+            if (
+                window.getComputedStyle(columns[col][row].children[0]).backgroundColor == "rgb(0, 0, 255)"
+                && window.getComputedStyle(columns[col][row].children[0]).backgroundColor != "rgb(179, 179, 179)"
+            ) {
+                blueInARow++
+            } else {
+                blueInARow = 0
+            }
+            if (blueInARow == 4) {
+                setTimeout(() => {
+                    alert("Blue win!")
+                    resetGame()
+                    return true
+                }, 100);
+            }
+            if (orangeInARow == 4) {
+                setTimeout(() => {
+                    alert("Orange win!")
+                    resetGame()
+                    return true
+                }, 100);
+            }
+        }
+
+        let blueInARow = 0;
+        let orangeInARow = 0;
+
+        function checkDiagonalUp() {
+            for (i = 4; i <= 6; i++) {
+                let col = 0
+                blueInARow = 0;
+                orangeInARow = 0;
+                for (j = 2 + (4 - i); j <= 5; j++) {
+                    let row = j
+                    if (checkColRow(col, row)) {
+                        return
+                    }
+                    col++
+                }
+            }
+            for (i = 1; i <= 3; i++) {
+                let col = i
+                blueInARow = 0;
+                orangeInARow = 0;
+                for (j = 0; j <= 5 - (i - 1); j++) {
+                    let row = j
+                    if (checkColRow(col, row)) {
+                        return
+                    }
+                    col++
+                }
+            }
+        }
+
+        function checkDiagonalDown() {
+            for (i = 0; i < 3; i++) {
+                let col = 0
+                blueInARow = 0;
+                orangeInARow = 0;
+                for (j = 5 - i; j > 0; j--) {
+                    let row = j
+                    if (checkColRow(col, row)) {
+                        return
+                    }
+                    col++
+                }
+            }
+            for (i = 0; i < 3; i++) {
+                let col = i + 1
+                blueInARow = 0;
+                orangeInARow = 0;
+                for (j = 5; j >= 0 + i; j--) {
+                    let row = j
+                    if (checkColRow(col, row)) {
+                        return
+                    }
+                    col++
+                }
+            }
+        }
+
+        function checkVertical() {
+            for (j = 0; j <= 6; j++) {
+                blueInARow = 0;
+                orangeInARow = 0;
+                for (i = 0; i <= 5; i++) {
+                    if (checkColRow(j, i)) {
+                        return
+                    }
+                }
+            }
+        }
+
+        function checkHorizontal() {
+            for (i = 0; i <= 5; i++) {
+                blueInARow = 0;
+                orangeInARow = 0;
+                for (j = 0; j <= 6; j++) {
+                    if (checkColRow(j, i)) {
+                        return
+                    }
+                }
+            }
+        }
+
+        function resetGame() {
+            for (i = 0; i <= 6; i++) {
+                for (j = 0; j <= 5; j++) {
+                    columns[i][j].children[0].style.backgroundColor = "rgb(179, 179, 179)"
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
