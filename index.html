@@ -16,6 +16,7 @@
             grid-template-columns: repeat(7, 1fr);
             background-color: rgb(33, 33, 33);
             padding: 16px;
+            border-radius: 16px;
         }
 
         #grid-top {
@@ -447,7 +448,7 @@
                 let col = 0
                 blueInARow = 0;
                 orangeInARow = 0;
-                for (j = 5 - i; j > 0; j--) {
+                for (j = 5 - i; j >= 0; j--) {
                     let row = j
                     if (checkColRow(col, row)) {
                         return
