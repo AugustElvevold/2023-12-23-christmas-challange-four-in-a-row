@@ -345,6 +345,10 @@
                     columns[column][i].children[0].style.backgroundColor = currentPlayer
                     i = 5
                 }
+                else if (i == 5) {
+                    alert("column is full")
+                    return
+                }
             }
             checkIfWin()
             switchCurrentPlayer()
@@ -356,6 +360,23 @@
             checkVertical()
             checkDiagonalUp()
             checkDiagonalDown()
+            checkTie()
+        }
+
+        function checkTie() {
+            let tie = true
+            columns.forEach(column => {
+                column.forEach(cell => {
+                    if (window.getComputedStyle(cell.children[0]).backgroundColor == "rgb(179, 179, 179)") {
+                        tie = false
+                    }
+                });
+            });
+            if (tie) {
+                setTimeout(() => {
+                    alert("Tie")
+                }, 100);
+            }
         }
 
         function checkColRow(col, row, blue, orange) {
